@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import Header from '../../components/Header';
+import ItemLista from '../../components/ItemLista';
 
 export default function Home() {
   const lista = [
@@ -34,11 +35,12 @@ export default function Home() {
 
       {lista.map((item) => {
         return (
-          <View style={{flexDirection: 'row'}}>
-            <Text>{item.quantidade}</Text>
-            <Text>{item.unidade}</Text>
-            <Text>{item.nome}</Text>
-          </View>
+          // <View style={{flexDirection: 'row'}}>
+          //   <Text>{item.quantidade}</Text>
+          //   <Text>{item.unidade}</Text>
+          //   <Text>{item.nome}</Text>
+          // </View>
+          <ItemLista nome={item.nome} quantidade={item.quantidade} unidade={item.unidade} />
         )
       })
 
