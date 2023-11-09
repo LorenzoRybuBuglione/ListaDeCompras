@@ -2,7 +2,7 @@ import { Container, InputContainer, Input, Button } from "./styles";
 import Icon from "react-native-vector-icons/Feather";
 import { useState } from "react";
 
-const Header = ({ addToList }) => {
+const Header = ({ addToList, deleteAllChecked }) => {
     const [qnt, setQnt] = useState("");
     const [un, setUn] = useState("");
     const [nome, setNome] = useState("");
@@ -27,6 +27,9 @@ const Header = ({ addToList }) => {
                 />
                 <Button onPress={handleClick}>
                     <Icon name="plus-circle" size={40} color="#FBFFDC" />
+                </Button>
+                <Button onPress={deleteAllChecked}>
+                    <Icon name="trash" size={40} color="#FF6969" />
                 </Button>
             </InputContainer>
         </Container>
