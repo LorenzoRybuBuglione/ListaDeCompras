@@ -1,4 +1,4 @@
-import { Container, LabelContainer, Label, Button } from "./styles";
+import { Container, LabelContainer, Label, Button, ButtonContainer } from "./styles";
 import Icon from "react-native-vector-icons/Feather";
 import { useState } from "react";
 
@@ -14,8 +14,8 @@ const ItemLista = ({ quantidade, unidade, nome }) => {
     }
 
     return (
-        <Container onPress={toggleChecked}>
-            <Button>
+        <Container >
+            <Button onPress={toggleChecked}>
                 <Icon name={checked ? "check-square" : "square"} size={20} />
             </Button>
             <LabelContainer>
@@ -25,9 +25,15 @@ const ItemLista = ({ quantidade, unidade, nome }) => {
                 </Label>
                 <Label>{nome}</Label>
             </LabelContainer>
+            <ButtonContainer>
+
+            <Button>
+                <Icon name="trash" size={20} />
+            </Button>
             <Button>
                 <Icon name="edit" size={20} />
             </Button>
+            </ButtonContainer>
         </Container>
     );
 };

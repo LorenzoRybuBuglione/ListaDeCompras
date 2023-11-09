@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const Container = styled.TouchableOpacity`
+export const Container = styled.View`
     padding: 5%;
     background-color: #fff;
     width: 90%;
@@ -23,5 +23,9 @@ export const Label = styled.Text`
     font-weight: bold;
 `;
 
-export const Button = styled.TouchableOpacity`
+export const Button = styled.TouchableOpacity``;
+
+export const ButtonContainer = styled.View`
+    flex-direction: row;
+    gap: 5px;
 `;
