@@ -37,6 +37,11 @@ export default function Home() {
       setNewId(newId+1)
     };
 
+    const deleteFromList = (id) => {
+      let newList = list.filter(item => item.id !== id);
+      setList(newList);
+    }
+
     return (
         <View style={styles.container}>
             <StatusBar style="dark" />
@@ -49,6 +54,8 @@ export default function Home() {
                         nome={item.nome}
                         quantidade={item.quantidade}
                         unidade={item.unidade}
+                        id={item.id}
+                        deleteFromList={deleteFromList}
                     />
                 );
             })}

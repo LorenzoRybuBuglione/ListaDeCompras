@@ -17,15 +17,15 @@ const Header = ({ addToList }) => {
     return (
         <Container>
             <InputContainer>
-                <Input placeholder="Qnt." value={qnt} onChangeText={setQnt} />
-                <Input placeholder="Un." value={un} onChangeText={setUn} />
+                <Input placeholder="Qnt." value={qnt} onChangeText={setQnt} style={{ width: '15%'}}/>
+                <Input placeholder="Un." value={un} onChangeText={setUn}  style={{ width: '15%'}}/>
                 <Input
                     placeholder="Nome do item"
                     value={nome}
                     onChangeText={setNome}
+                    style={{ width: '50%'}}
                 />
                 <Button onPress={handleClick}>
-                    {/* <Button onPress={() => console.log("go")}> */}
                     <Icon name="plus-circle" size={40} color="#FBFFDC" />
                 </Button>
             </InputContainer>

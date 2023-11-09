@@ -2,7 +2,7 @@ import { Container, LabelContainer, Label, Button, ButtonContainer } from "./sty
 import Icon from "react-native-vector-icons/Feather";
 import { useState } from "react";
 
-const ItemLista = ({ quantidade, unidade, nome }) => {
+const ItemLista = ({ quantidade, unidade, nome, deleteFromList, id }) => {
     const [checked, setChecked] = useState(false);
 
     function toggleChecked() {
@@ -27,7 +27,7 @@ const ItemLista = ({ quantidade, unidade, nome }) => {
             </LabelContainer>
             <ButtonContainer>
 
-            <Button>
+            <Button onPress={() => deleteFromList(id)}>
                 <Icon name="trash" size={20} />
             </Button>
             <Button>
