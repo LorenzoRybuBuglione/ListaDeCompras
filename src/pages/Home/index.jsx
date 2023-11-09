@@ -3,6 +3,7 @@ import { useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import Header from "../../components/Header";
 import ItemLista from "../../components/ItemLista";
+import { Container } from "./styles";
 
 export default function Home() {
     const [list, setList] = useState([
@@ -29,23 +30,26 @@ export default function Home() {
         },
     ]);
 
-    const [newId, setNewId] = useState(4)
+    const [newId, setNewId] = useState(4);
 
     const addToList = (nome, quantidade, unidade) => {
-      console.log("go")
-      setList([...list, {nome, quantidade, unidade, id: newId, marcado: false}])
-      setNewId(newId+1)
+        console.log("go");
+        setList([
+            ...list,
+            { nome, quantidade, unidade, id: newId, marcado: false },
+        ]);
+        setNewId(newId + 1);
     };
 
     const deleteFromList = (id) => {
-      let newList = list.filter(item => item.id !== id);
-      setList(newList);
-    }
+        let newList = list.filter((item) => item.id !== id);
+        setList(newList);
+    };
 
     return (
-        <View style={styles.container}>
+        <Container>
             <StatusBar style="dark" />
-            <Header addToList={addToList}/>
+            <Header addToList={addToList} />
 
             {list.map((item) => {
                 return (
@@ -59,15 +63,6 @@ export default function Home() {
                     />
                 );
             })}
-        </View>
+        </Container>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#98EECC",
-        alignItems: "center",
-        // justifyContent: 'center',
-    },
-});
