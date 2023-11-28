@@ -17,7 +17,7 @@ const ItemLista = ({
     toggleChecked,
 }) => {
     return (
-        <Container>
+        <Container style={{ opacity: marcado?  0.5 :  1}}>
             <Button onPress={() => toggleChecked(id)}>
                 <Icon name={marcado ? "check-square" : "square"} size={20} />
             </Button>
