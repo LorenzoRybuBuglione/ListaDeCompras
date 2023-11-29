@@ -5,14 +5,24 @@ import {
 } from "firebase/auth/react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+import {
+    API_KEY,
+    AUTH_DOMAIN,
+    PROJECT_ID,
+    STORAGE_BUCKET,
+    MESSAGING_SENDER_ID,
+    APP_ID,
+    MEASUREMENT_ID,
+} from "@env";
+
 const firebaseConfig = {
-    apiKey: "AIzaSyAytojhF5SRP5AQWKo6o4w_BOpBe3_cwo8",
-    authDomain: "lista-de-compras-a704b.firebaseapp.com",
-    projectId: "lista-de-compras-a704b",
-    storageBucket: "lista-de-compras-a704b.appspot.com",
-    messagingSenderId: "258366609662",
-    appId: "1:258366609662:web:5e37d06eea2de6182c2daf",
-    measurementId: "G-JGDR0YFYPW",
+    apiKey: API_KEY,
+    authDomain: AUTH_DOMAIN,
+    projectId: PROJECT_ID,
+    storageBucket: STORAGE_BUCKET,
+    messagingSenderId: MESSAGING_SENDER_ID,
+    appId: APP_ID,
+    measurementId: MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);
