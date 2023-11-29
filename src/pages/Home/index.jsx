@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import ItemLista from "../../components/ItemLista";
 import { Container } from "./styles";
+import {doc, setDoc} from "firebase/firestore";
+import { db } from "../../config/firebase";
 
 export default function Home() {
     const [list, setList] = useState([
@@ -28,6 +30,18 @@ export default function Home() {
             marcado: false,
         },
     ]);
+
+    useEffect(() => {
+        async function criarItem() {
+            await setDoc(doc(db, "lista", "123456"), {
+                nome: "Salgadinho",
+                quantidade: 1,
+                unidade: "Pac.",
+            })
+        }
+        criarItem();
+
+    },[]);
 
     const [newId, setNewId] = useState(4);
 
