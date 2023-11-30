@@ -42,6 +42,7 @@ export default function Home() {
         criarItem();
     }, []);
 
+    const [newId, setNewId] = useState(4);
 
     const addToList = (nome, quantidade, unidade) => {
         console.log("go");
