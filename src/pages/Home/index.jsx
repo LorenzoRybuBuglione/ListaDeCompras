@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import ItemLista from "../../components/ItemLista";
 import { Container } from "./styles";
-import {doc, setDoc} from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../config/firebase";
 
 export default function Home() {
@@ -33,17 +33,15 @@ export default function Home() {
 
     useEffect(() => {
         async function criarItem() {
-            await setDoc(doc(db, "lista", "123456"), {
+            await addDoc(collection(db, "lista"), {
                 nome: "Salgadinho",
                 quantidade: 1,
                 unidade: "Pac.",
-            })
+            });
         }
         criarItem();
+    }, []);
 
-    },[]);
-
-    const [newId, setNewId] = useState(4);
 
     const addToList = (nome, quantidade, unidade) => {
         console.log("go");

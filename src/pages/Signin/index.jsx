@@ -1,11 +1,18 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CredenciaisInput from "../../components/CredenciaisInput";
-import { Container, InputContainer, Title, Button, ButtonText } from "./styles";
-
+import Icon from "react-native-vector-icons/Feather";
 import { auth } from "../../config/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+    Container,
+    InputContainer,
+    Title,
+    Button,
+    ButtonText,
+    BackButton,
+} from "./styles";
 
-export default function Signin() {
+export default function Signin({ navigation }) {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [repeteSenha, setRepeteSenha] = useState("");
@@ -13,19 +20,22 @@ export default function Signin() {
     const createUser = () => {
         if (senha === repeteSenha && senha !== "") {
             createUserWithEmailAndPassword(auth, email, senha)
-            .then((userCredential) => {
-                console.log(userCredential);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+                .then((userCredential) => {
+                    console.log(userCredential);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
         } else {
-            Alert.alert("Erro")
+            Alert.alert("Erro");
         }
-    }
+    };
 
     return (
         <Container>
+            <BackButton onPress={() => navigation.goBack()}>
+                <Icon name="chevron-left" size={30} />
+            </BackButton>
             <Title>
                 Insira seu e-mail e sua senha{"\n"}para criar sua conta
             </Title>

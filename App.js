@@ -1,14 +1,5 @@
-import Home from './src/pages/Home';
-import Login from './src/pages/Login';
-import Signin from './src/pages/Signin';
+import Routes from "./src/routes";
 
 export default function App() {
-  return (
-    <>
-      {/* <Home/> */}
-      <Login/>
-      {/* <Signin/> */}
-    </>
-  );
+    return <Routes />;
 }
-
